@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -38,6 +41,19 @@
                     <!-- Classic Menu -->
                     <nav role="navigation" id="topnav_menu">
                         <a id="home_link" class="topnav_link" href="/">Accueil</a>
+                        <a id="home_link" class="topnav_link" href="/">Bonjour 
+                        <?php
+                            if(isset($_SESSION["fn_user"])) {
+        
+                                echo $_SESSION["fn_user"];
+                                echo "<a href = \"includes/logout.inc.php\">Logout</a>";
+                            } else {
+                                echo "Sign up";
+                            }
+                        ?>
+                        </a>
+
+                        
                         <a class="topnav_link" href="/about">Découvrez-nous</a>
                         <a class="topnav_link" href="/contact-us">Contact</a>
                     </nav>
