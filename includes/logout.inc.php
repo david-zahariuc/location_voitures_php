@@ -3,7 +3,7 @@ session_start();
 session_unset();
 session_destroy();
 
-header("location: ../compte.php");
+header("location: ../index.php");
 
 
 ?>

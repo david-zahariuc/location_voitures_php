@@ -24,7 +24,7 @@ body {
 header {
     background-color: rgb(0, 0, 0);
     height: 100px;
-    position: sticky;
+    /*position: sticky;*/
 }
 
 /*.formulaire{}*/
@@ -138,6 +138,9 @@ button {
 .titreVoitures {
     border-bottom: 10px solid #E01B14;
     margin-bottom: 0;
+}
+.titreAuto {
+    background-color: #E01B14;
 }
 
 /* /////// header navbar avec logo et menu burger*/

@@ -13,6 +13,8 @@ if(isset($_POST["submit"])) {
 
     $signUP = new SignupContr ($firstName, $lastName, $password, $email);
     $signUP->signupUser();
+    header("location: ../index.php");
+
 } else {
     header("location: ../compte.php?error=failed");
 }
