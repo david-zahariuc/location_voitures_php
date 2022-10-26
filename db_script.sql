@@ -3,12 +3,12 @@ CREATE DATABASE IF NOT EXISTS location_voiture;
 
 DROP TABLE IF EXISTS `location_voiture`.`users`;
 CREATE TABLE `location_voiture`.`users` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `userNb` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `user_pwd` VARCHAR(45) NOT NULL,
   `user_email` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`user_id`));
+  PRIMARY KEY (`userNb`));
   
   DROP TABLE IF EXISTS `location_voiture`.`automobiles`;
   CREATE TABLE `location_voiture`.`automobiles` (
@@ -27,7 +27,7 @@ CREATE TABLE `location_voiture`.`users` (
 DROP TABLE IF EXISTS `location_voiture`.`reservations`;
 CREATE TABLE `location_voiture`.`reservations` (
   `id_res` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
+  `userNb` INT NOT NULL,
   `id_auto` INT NOT NULL,
   `start_date` DATE NOT NULL,
   `end_date` DATE NOT NULL,
@@ -35,13 +35,13 @@ CREATE TABLE `location_voiture`.`reservations` (
   PRIMARY KEY (`id_res`));
   
 ALTER TABLE `location_voiture`.`reservations` 
-ADD INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+ADD INDEX `userNb_idx` (`userNb` ASC) VISIBLE,
 ADD INDEX `id_auto_idx` (`id_auto` ASC) VISIBLE;
 ;
 ALTER TABLE `location_voiture`.`reservations` 
-ADD CONSTRAINT `user_id`
-  FOREIGN KEY (`user_id`)
-  REFERENCES `location_voiture`.`users` (`user_id`)
+ADD CONSTRAINT `userNb`
+  FOREIGN KEY (`userNb`)
+  REFERENCES `location_voiture`.`users` (`userNb`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION,
 ADD CONSTRAINT `id_auto`
